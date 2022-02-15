@@ -1,23 +1,41 @@
-import React from 'react';
-
-const NewBudget = () => {
-  return (
-    <div className='budget-container container shadow'>
-        <form className='form'>
-            <div className='field'>
-                <label>Set Budget</label>
-                <input 
-                    className='new-budget'
-                    type="text" 
-                    placeholder='Add your budget'
-                />
-            </div>
+import { useState } from "react"
+import Message from "./Message"
 
 
-            <input type="submit" value="Add"/>
-        </form>
-    </div>
-  );
+const NewBudget = ({ budget, setBudget }) => {
+
+    const [ msg, setMsg ] = useState('')
+
+    const handleBudget = (e) => {
+        e.preventDefault()
+
+        if(!Number(budget) || Number(budget) < 0){
+            setMsg("Invalid budget!")
+        }else {
+            console.log("Correct")
+        }
+    }
+
+    return (
+        <div className='budget-container container shadow'>
+            <form onSubmit={ handleBudget } className='form'>
+                <div className='field'>
+                    <label>Set Budget</label>
+                    <input 
+                        className='new-budget'
+                        type="text" 
+                        placeholder='Add your budget'
+                        value={ budget }
+                        onChange={ (e) =>  setBudget(e.target.value) }
+                    />
+                </div>
+
+                <input type="submit" value="Add"/>
+
+                { msg && <Message type="error">{ msg }</Message>}
+            </form>
+        </div>
+    );
 }
 
 export default NewBudget;
