@@ -10,6 +10,12 @@ function App() {
   const [budget, setBudget] = useState(0)
   const [isValidBudget, setIsValidBudget] = useState(0)
 
+  const [modal, setModal] = useState(false)
+
+  const handleNewExpense = () => {
+    setModal(true)
+  }
+
   return (
     <div>
       <Header
@@ -20,9 +26,14 @@ function App() {
       />
       {isValidBudget && (
         <div className='new-expense'>
-          <img src={ IconNewExpense } alt="icon new expense" />
+          <img 
+            src={ IconNewExpense } 
+            alt="icon new expense"
+            onClick={ handleNewExpense } />
         </div>
       )}
+
+      { modal && <p>Modal</p> }
     </div>
   )
 }
