@@ -9,16 +9,22 @@ import IconNewExpense from './img/new-expense.svg'
 function App() {
 
   const [budget, setBudget] = useState(0)
-  const [isValidBudget, setIsValidBudget] = useState(0)
+  const [isValidBudget, setIsValidBudget] = useState(false)
 
   const [modal, setModal] = useState(false)
   const [animModal, setAnimModal] = useState(false)
+
+  const [expenses, setExpenses] = useState([])
 
   const handleNewExpense = () => {
     setModal(true)
     setTimeout(() => {
         setAnimModal(true)
     }, 500) 
+  }
+
+  const saveExpense = expense => {
+    
   }
 
   return (
@@ -41,7 +47,8 @@ function App() {
       { modal && <Modal 
                     setModal = { setModal } 
                     animModal = { animModal }
-                    setAnimModal = { setAnimModal } /> }
+                    setAnimModal = { setAnimModal } 
+                    saveExpense = { saveExpense }/> }
     </div>
   )
 }

@@ -1,7 +1,11 @@
 import { useState } from 'react'
+
+import Message from './Message'
 import CloseModal from '../img/close.svg'
 
-const Modal = ({ setModal, animModal, setAnimModal }) => {
+const Modal = ({ setModal, animModal, setAnimModal, saveExpense }) => {
+
+    const [msg, setMsg] = useState('')
 
     const [name, setName] = useState('')
     const [quantity, setQuantity] = useState ('')
@@ -15,6 +19,21 @@ const Modal = ({ setModal, animModal, setAnimModal }) => {
         }, 500)
     }
 
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        if([ name, quantity, category ].includes('')){
+            setMsg('All fields are required!')
+
+            setTimeout(() => {
+                setMsg('')
+            },3000)
+            return
+        }
+
+        saveExpense({ name, quantity, category })
+    }
+
   return (
     <div className="modal">
         <div className="close-modal">
@@ -24,8 +43,11 @@ const Modal = ({ setModal, animModal, setAnimModal }) => {
                 onClick={ closeModal } />
         </div>
 
-        <form className={`form ${ animModal ? 'anim' : 'close' }`}>
+        <form 
+            className={`form ${ animModal ? 'anim' : 'close' }`}
+            onSubmit={ handleSubmit }>
             <legend>New Expense</legend>
+            {msg && <Message type="error">{ msg }</Message>}
             <div className='field'>
                 <label htmlFor="name">Expense Name</label>
                 <input 
@@ -49,7 +71,7 @@ const Modal = ({ setModal, animModal, setAnimModal }) => {
                 <select 
                     id="category"
                     value={ category }
-                    onChange={ e => setCategory(Number(e.target.value)) }>
+                    onChange={ e => setCategory(e.target.value) }>
                         <option value="">-- Select --</option>
                         <option value="savings">Savings</option>
                         <option value="food">Food</option>
