@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import Header from './components/Header'
+import Modal from './components/Modal'
 
 import IconNewExpense from './img/new-expense.svg'
 
@@ -33,7 +34,7 @@ function App() {
         </div>
       )}
 
-      { modal && <p>Modal</p> }
+      { modal && <Modal setModal = { setModal } /> }
     </div>
   )
 }
