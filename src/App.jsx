@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Header from './components/Header'
 import Modal from './components/Modal'
+import { genID } from './helpers'
 
 import IconNewExpense from './img/new-expense.svg'
 
@@ -24,7 +25,12 @@ function App() {
   }
 
   const saveExpense = expense => {
-    
+      expense.id = genID()
+      setExpenses([...expenses, expense])
+
+      setTimeout(() => {
+        setModal(false)
+    }, 500)
   }
 
   return (
