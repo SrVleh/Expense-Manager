@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import Header from './components/Header'
 
+import IconNewExpense from './img/new-expense.svg'
+
 
 function App() {
 
@@ -16,6 +18,11 @@ function App() {
         isValidBudget = { isValidBudget }
         setIsValidBudget = { setIsValidBudget }
       />
+      {isValidBudget && (
+        <div className='new-expense'>
+          <img src={ IconNewExpense } alt="icon new expense" />
+        </div>
+      )}
     </div>
   )
 }
