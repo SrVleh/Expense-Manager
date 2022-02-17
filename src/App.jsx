@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Header from './components/Header'
 import Modal from './components/Modal'
+import ExpensesList from './components/ExpensesList'
 import { genID } from './helpers'
 
 import IconNewExpense from './img/new-expense.svg'
@@ -42,12 +43,19 @@ function App() {
         setIsValidBudget = { setIsValidBudget }
       />
       {isValidBudget && (
-        <div className='new-expense'>
-          <img 
-            src={ IconNewExpense } 
-            alt="icon new expense"
-            onClick={ handleNewExpense } />
+        <>
+          <main>
+            <ExpensesList
+              expenses = { expenses }
+            />
+          </main>
+          <div className='new-expense'>
+            <img 
+              src={ IconNewExpense } 
+              alt="icon new expense"
+              onClick={ handleNewExpense } />
         </div>
+        </>
       )}
 
       { modal && <Modal 

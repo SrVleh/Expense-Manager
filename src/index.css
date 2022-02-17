@@ -256,10 +256,10 @@ main {
     background-color: var(--gris-claro);
 }
 
-.listado-gastos {
+.expenses-list {
     margin-top: 5rem;
 }
-.listado-gastos h2 {
+.expenses-list h2 {
     color: var(--gris-oscuro);
     font-weight: 900;
 }
