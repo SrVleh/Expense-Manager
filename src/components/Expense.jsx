@@ -1,8 +1,16 @@
 
-const Expense = () => {
+const Expense = ({ expense }) => {
+
+    const { category, name, quantity, id } = expense
+
   return (
-    <div>
-        <p>Expense</p>
+    <div className="expense shadow">
+        <div className="expense-content">
+            <div className="expense-description">
+                <p className="category">{ category }</p>
+                <p className="expense-name">{ name }</p>
+            </div>
+        </div>
     </div>
   );
 }

@@ -27,6 +27,7 @@ function App() {
 
   const saveExpense = expense => {
       expense.id = genID()
+      expense.date = Date.now()
       setExpenses([...expenses, expense])
 
       setTimeout(() => {

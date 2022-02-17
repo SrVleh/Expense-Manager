@@ -268,7 +268,7 @@ main {
     font-size: 2.2rem;
 }
 
-.gasto {
+.expense {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -277,48 +277,48 @@ main {
     width: 100%;
 }
 
-.cantidad-gasto {
+.expense-quantity {
     font-size: 2.4rem;
     color: var(--negro);
     font-weight: 900;
 }
 
-.contenido-gasto {
+.expense-content {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.contenido-gasto img {
+.expense-content img {
     width: 10rem;
 }
 
-.descripcion-gasto p {
+.expense-description p {
     margin: 0 0 0.3rem 0;
 }
-.descripcion-gasto .categoria {
+.expense-description .category {
     color: var(--gris);
     font-size: 1.6rem;
     font-weight: 900;
     text-transform: uppercase;
 }
-.descripcion-gasto p {
+.expense-description p {
     margin-bottom: 1rem;
 }
-.descripcion-gasto .nombre-gasto {
+.expense-description .expense-name {
     color: var(--gris-oscuro);
     font-size: 2.4rem;
     font-weight: 700;
 }
-.descripcion-gasto .nombre-gasto:hover {
+.expense-description .expense-name:hover {
     cursor: pointer;
 }
-.descripcion-gasto .fecha-gasto {
+.expense-description .expense-date {
     font-size: 1.8rem;
     font-weight: 900;
     color: var(--gris-oscuro);
 }
-.descripcion-gasto .fecha-gasto span {
+.expense-description .expense-date span {
     font-weight: 400;
 }
 
