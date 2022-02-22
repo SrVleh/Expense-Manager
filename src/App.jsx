@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Modal from './components/Modal'
 import ExpensesList from './components/ExpensesList'
+import Filters from './components/Filters'
 import { genID } from './helpers'
 
 import IconNewExpense from './img/new-expense.svg'
@@ -24,6 +25,8 @@ function App() {
   const [animModal, setAnimModal] = useState(false)
 
   const [expenseEdit, setExpenseEdit] = useState({})
+
+  const [filter, setFilter] = useState('')
 
   useEffect(() => {
     if(Object.keys(expenseEdit).length > 0) {
@@ -48,6 +51,12 @@ function App() {
   useEffect(() => {
     localStorage.setItem('expenses', JSON.stringify(expenses) ?? [])
   }, [expenses])
+
+  useEffect(() => {
+    if(filter) {
+      console.log(filter)
+    }
+  }, [filter])
 
   const handleNewExpense = () => {
     setModal(true)
@@ -91,6 +100,10 @@ function App() {
       {isValidBudget && (
         <>
           <main>
+            <Filters
+              filter = { filter }
+              setFilter = { setFilter } 
+            />
             <ExpensesList
               expenses = { expenses }
               setExpenseEdit = { setExpenseEdit }
