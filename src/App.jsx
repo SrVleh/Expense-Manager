@@ -36,8 +36,9 @@ function App() {
   }
 
   return (
-    <div className={ modal && 'block' }>
+    <div className={ modal ? 'block' : '' }>
       <Header
+        expenses = { expenses }
         budget = { budget } 
         setBudget = { setBudget }
         isValidBudget = { isValidBudget }
