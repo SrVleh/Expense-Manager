@@ -33,19 +33,27 @@ const Expense = ({ expense }) => {
 
     const { category, name, quantity, id, date } = expense
 
-    const leadingActions = () => {
+    const leadingActions = () => (
+      <LeadingActions>
+        <SwipeAction onClick={() => console.log("Editing...")}>
+          Edit
+        </SwipeAction>
+      </LeadingActions>
+    )
 
-    }
-
-    const trailingActions = () => {
-      
-    }
+    const trailingActions = () => (
+      <TrailingActions>
+        <SwipeAction onClick={() => console.log("Deleting")}>
+          Delete
+        </SwipeAction>
+      </TrailingActions>
+    )
 
   return (
     <SwipeableList>
       <SwipeableListItem
-        leadingActions = { leadingActions }
-        trailingActions = { trailingActions }
+        leadingActions = { leadingActions() }
+        trailingActions = { trailingActions() }
       >
         <div className="expense shadow">
             <div className="expense-content">
