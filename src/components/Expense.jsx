@@ -29,13 +29,13 @@ const iconsDictionary = {
 }
 
 
-const Expense = ({ expense }) => {
+const Expense = ({ expense, setExpenseEdit }) => {
 
     const { category, name, quantity, id, date } = expense
 
     const leadingActions = () => (
       <LeadingActions>
-        <SwipeAction onClick={() => console.log("Editing...")}>
+        <SwipeAction onClick={() => setExpenseEdit(expense)}>
           Edit
         </SwipeAction>
       </LeadingActions>
