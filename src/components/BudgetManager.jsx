@@ -18,7 +18,7 @@ const BudgetManager = ({ expenses, budget }) => {
 
         setTimeout(() => {
             setPersentage(newPercentage)
-        }, 1000)
+        }, 600)
 
         setAvailable(totalAvailable)
         setSpent(totalSpent)
@@ -36,9 +36,9 @@ const BudgetManager = ({ expenses, budget }) => {
         <div>
             <CircularProgressbar
                 styles={buildStyles({
-                    pathColor: '#3B82F6',
+                    pathColor: percentage > 100 ? '#FF475A' : '#4075DD',
                     trailColor: '#F5F5F5',
-                    textColor: '#3B82F6'
+                    textColor: percentage > 100 ? '#FF475A' : '#4075DD'
                 })}
                 value={percentage}
                 text={`${percentage}% Spent`}
@@ -48,7 +48,7 @@ const BudgetManager = ({ expenses, budget }) => {
             <p>
                 <span>Budget: </span> { formatBudget(budget) }
             </p>
-            <p>
+            <p className={ `${ available < 0 ? 'negative' : '' }` }>
                 <span>Available: </span> { formatBudget(available) }
             </p>
             <p>
