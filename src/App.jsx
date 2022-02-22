@@ -22,12 +22,16 @@ function App() {
 
   useEffect(() => {
     if(Object.keys(expenseEdit).length > 0) {
-      handleNewExpense()
+      setModal(true)
+      setTimeout(() => {
+        setAnimModal(true)
+      }, 500) 
     }
   }, [expenseEdit])
 
   const handleNewExpense = () => {
     setModal(true)
+    setExpenseEdit({})
     setTimeout(() => {
         setAnimModal(true)
     }, 500) 
@@ -73,7 +77,9 @@ function App() {
                     setModal = { setModal } 
                     animModal = { animModal }
                     setAnimModal = { setAnimModal } 
-                    saveExpense = { saveExpense }/> }
+                    saveExpense = { saveExpense }
+                    expenseEdit = { expenseEdit } 
+                    />}
     </div>
   )
 }

@@ -1,15 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Message from './Message'
 import CloseModal from '../img/close.svg'
 
-const Modal = ({ setModal, animModal, setAnimModal, saveExpense }) => {
+const Modal = ({ setModal, animModal, setAnimModal, saveExpense ,expenseEdit }) => {
 
     const [msg, setMsg] = useState('')
-
     const [name, setName] = useState('')
     const [quantity, setQuantity] = useState ('')
     const [category, setCategory] = useState('')
+
+    useEffect(() => {
+        if(Object.keys(expenseEdit).length > 0) {
+            setName(expenseEdit.name)
+            setQuantity(expenseEdit.quantity)
+            setCategory(expenseEdit.category)
+          }
+    }, [])
 
     const closeModal = () => {
         setAnimModal(false)
