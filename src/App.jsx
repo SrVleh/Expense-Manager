@@ -53,6 +53,11 @@ function App() {
     }, 500)
   }
 
+  const deleteExpense = id => {
+    const updatedExpenses = expenses.filter(expense => expense.id !== id)
+    setExpenses(updatedExpenses)
+  }
+
   return (
     <div className={ modal ? 'block' : '' }>
       <Header
@@ -68,6 +73,7 @@ function App() {
             <ExpensesList
               expenses = { expenses }
               setExpenseEdit = { setExpenseEdit }
+              deleteExpense = { deleteExpense }
             />
           </main>
           <div className='new-expense'>
