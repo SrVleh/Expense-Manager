@@ -96,6 +96,8 @@ function App() {
     <div className={ modal ? 'block' : '' }>
       <Header
         expenses = { expenses }
+        setExpenses = { setExpenses }
+        setIsValidBudget = { setIsValidBudget } 
         budget = { budget } 
         setBudget = { setBudget }
         isValidBudget = { isValidBudget }

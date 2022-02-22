@@ -218,7 +218,7 @@ header h1 {
 }
 .reset-app {
     border: none;
-    background-color: #db2777;
+    background-color: var(--blue);
     padding: 1rem;
     width: 100%;
     text-align: center;
