@@ -4,6 +4,7 @@ import 'react-circular-progressbar/dist/styles.css'
 
 const BudgetManager = ({ expenses, budget }) => {
 
+    const [ percentage, setPersentage ] = useState(0)
     const [ available, setAvailable ] = useState(0)
     const [ spent, setSpent ] = useState(0)
 
@@ -11,6 +12,13 @@ const BudgetManager = ({ expenses, budget }) => {
         const totalSpent = expenses.reduce( (total, expense) => expense.quantity + total, 0)
 
         const totalAvailable = budget - totalSpent
+
+        // Calculate spended percentage
+        const newPercentage = (((budget - totalAvailable) / budget) * 100).toFixed(2)
+
+        setTimeout(() => {
+            setPersentage(newPercentage)
+        }, 1000)
 
         setAvailable(totalAvailable)
         setSpent(totalSpent)
@@ -27,7 +35,7 @@ const BudgetManager = ({ expenses, budget }) => {
     <div className="budget-container container shadow two-cols">
         <div>
             <CircularProgressbar
-                value={50}
+                value={percentage}
             />
         </div>
         <div className="budget-content">
