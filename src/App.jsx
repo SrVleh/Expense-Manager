@@ -38,9 +38,15 @@ function App() {
   }
 
   const saveExpense = expense => {
-      expense.id = genID()
-      expense.date = Date.now()
-      setExpenses([...expenses, expense])
+      if(expense.id) {
+          //Update
+          const updatedExpenses = expenses.map(expenseState => expenseState.id === expense.id ? expense : expenseState)
+          setExpenses(updatedExpenses)
+      }else {
+        expense.id = genID()
+        expense.date = Date.now()
+        setExpenses([...expenses, expense])
+      }
 
       setTimeout(() => {
         setModal(false)
