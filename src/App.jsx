@@ -36,7 +36,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className={ modal && 'block' }>
       <Header
         budget = { budget } 
         setBudget = { setBudget }
