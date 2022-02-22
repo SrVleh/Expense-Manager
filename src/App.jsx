@@ -10,7 +10,9 @@ import IconNewExpense from './img/new-expense.svg'
 
 function App() {
 
-  const [budget, setBudget] = useState(0)
+  const [budget, setBudget] = useState(
+    Number(localStorage.getItem('budget')) ?? 0
+  )
   const [isValidBudget, setIsValidBudget] = useState(false)
 
   const [modal, setModal] = useState(false)
@@ -28,6 +30,17 @@ function App() {
       }, 500) 
     }
   }, [expenseEdit])
+
+  useEffect(() => {
+    localStorage.setItem('budget', budget ?? 0)
+  }, [budget])
+
+  useEffect(() => {
+    const budgetLS = Number(localStorage.getItem('budget')) ?? 0
+    if(budgetLS > 0) {
+      setIsValidBudget(true)
+    }
+  }, [])
 
   const handleNewExpense = () => {
     setModal(true)
