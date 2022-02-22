@@ -9,6 +9,9 @@ const BudgetManager = ({ expenses, budget }) => {
     useEffect (() => {
         const totalSpent = expenses.reduce( (total, expense) => expense.quantity + total, 0)
 
+        const totalAvailable = budget - totalSpent
+
+        setAvailable(totalAvailable)
         setSpent(totalSpent)
     }, [expenses])
 
