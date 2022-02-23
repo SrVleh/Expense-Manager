@@ -28,8 +28,7 @@ html {
 }
 @media (max-width: 400px) {
     .block {
-        overflow: hidden;
-        height: 120vh;
+        height: 100vh;
     }
 }
 
