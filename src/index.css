@@ -56,7 +56,18 @@ header h1 {
     text-transform: uppercase;
 }
 
+@media (max-width: 400px) {
+    h1 {
+        font-size: 3rem;
+        font-weight: bolder;
+    }
+}
+
 .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 95%;
     margin: 0 auto;
     padding: 10rem 0;
@@ -69,6 +80,7 @@ header h1 {
 }
 .form legend {
     font-size: 3.6rem;
+    width: 80%;
     text-align: center;
     display: block;
     text-transform: uppercase;
@@ -77,10 +89,26 @@ header h1 {
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--blue);
 }
+
+@media (max-width: 450px) {
+    .form legend {
+        font-size: 2rem;
+    }
+}
+
 .form .field {
     display: grid;
     margin-bottom: 2rem;
+    width: 80%;
 }
+
+
+@media (max-width: 450px) {
+    .form legend {
+        font-size: 2rem;
+    }
+}
+
 
 .form label {
     color: var(--blue);
@@ -88,6 +116,13 @@ header h1 {
     text-align: center;
     margin-bottom: 2rem;
 }
+
+@media (max-width: 450px) {
+    .form label {
+        font-size: 2rem;
+    }
+}
+
 
 .form input[type="text"],
 .form input[type="number"] {
@@ -111,6 +146,7 @@ header h1 {
     width: 100%;
     transition: background-color 300ms ease;
     cursor: pointer;
+    border-radius: 1rem;
 }
 @media (min-width: 768px) {
     .form input[type="submit"] {
@@ -118,6 +154,14 @@ header h1 {
         padding: 1rem 5rem;
     }
 }
+
+@media (max-width: 450px) {
+    .form input[type="submit"] {
+        font-size: 2rem;
+        width: 80%;
+    }
+}
+
 .form.close input[type="submit"]:hover {
     background-color: #042a67;
     cursor: pointer;
@@ -189,6 +233,18 @@ header h1 {
     text-align: center;
 }
 
+@media (max-width: 460px) {
+    .form input[type="text"].new-budget, 
+    .form input[type="number"].new-budget {
+        width: auto;
+    }
+
+    .new-budget {
+        width: auto;
+        min-width: 150px;
+    }
+}
+
 .budget-container svg {
     width: 25rem;
 }
@@ -244,10 +300,17 @@ main {
     gap: 2rem;
 }
 .filters label {
-    font-size: 3rem;
+    font-size: 2vw;
     font-weight: 900;
     color: var(--dark-gray);
 }
+
+@media (max-width: 400px) {
+    .filters label {
+        font-size: 5vw;
+    }
+}
+
 .filters select {
     flex: 1;
     padding: 1rem;
@@ -277,6 +340,7 @@ main {
     margin-bottom: 2rem;
     width: 100%;
 }
+
 
 .expense-quantity {
     font-size: 2.4rem;
@@ -323,6 +387,34 @@ main {
     font-weight: 400;
 }
 
+
+@media (max-width: 400px) {
+    .expense {
+        flex-direction: column;
+    }
+
+    .expense-description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .expense-description .expense-name {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .expense-description .expense-date {
+        font-size: 1.5rem;
+    }
+
+    .expense-content {
+        flex-direction: column;
+       
+    }
+}
+
 .new-expense {
     position: fixed;
     bottom: 5rem;
@@ -332,6 +424,18 @@ main {
 .new-expense img {
     width: 5rem;
 }
+
+@media (max-width: 400px) {
+    .new-expense img {
+        width: 5rem;
+    }
+
+    .new-expense {
+        bottom: 2rem;
+        right: 2rem;
+    }
+}
+
 .new-expense img:hover {
     cursor: pointer;
 }
